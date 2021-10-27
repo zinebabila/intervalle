@@ -29,6 +29,8 @@ double math::Intervalle::max()
 
 bool math::Intervalle::operator[](double m)
 {
+    //ahrrass bonjour
+       //safhjdgfhdfsdf
     if(m<=this->maximum && m>=this->minimum)
     return true;
     return false;
