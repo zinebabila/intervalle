@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "Intervalle.h"
+using namespace std;
+using namespace math;
 math::Intervalle::Intervalle(double a, double b)
 {
     if (a < b) {
@@ -29,10 +31,39 @@ double math::Intervalle::max()
 
 bool math::Intervalle::operator[](double m)
 {
-    //ahrrass bonjour
-    // //zineb bonjour
-       //safhjdgfhdfsdf
     if(m<=this->maximum && m>=this->minimum)
     return true;
     return false;
 }
+
+void math::Intervalle::consulter()
+{
+    cout << "[" << this->minimum << "," << this->maximum << "]" << endl;
+}
+
+Intervalle* math::Intervalle::operator+(Intervalle& z)
+{
+    double mi, ma;
+    if (this->minimum < z.minimum)
+        mi = this->minimum;
+    else mi = z.minimum;
+    if (this->maximum > z.maximum)
+        ma = this->maximum;
+    else ma = z.maximum;
+    Intervalle *a = new Intervalle(mi,ma);
+
+    return a;
+}
+
+Intervalle* math::Intervalle::operator-(Intervalle& z)
+{
+    double mi, ma;
+    if (this->minimum > z.minimum) mi = this->minimum;
+    else mi = z.minimum;
+    if (this->maximum < z.maximum) ma = this->maximum;
+    else ma = z.maximum;
+    Intervalle* a = new Intervalle(mi, ma);
+    return a;
+}
+
+

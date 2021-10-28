@@ -10,7 +10,9 @@ namespace math {
 		double min();
 		double max();
 		bool operator[](double m);
-		
+		void consulter();
+		Intervalle* operator+(Intervalle& z);
+		Intervalle* operator-(Intervalle& z);
 
 
 	};
